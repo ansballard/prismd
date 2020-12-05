@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prismd Tester</title>
+  <link rel="stylesheet" href="https://unpkg.com/prismjs@1.22.0/themes/prism-dark.css" />
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module">
+    import { h, render } from 'https://unpkg.com/preact@latest?module';
+    import htm from 'https://unpkg.com/htm?module';
+    import { useCallback } from 'https://unpkg.com/preact@latest/hooks/dist/hooks.module.js?module';
+    import { PrismdBuilder } from "./dist/prismd.builder.mjs";
+
+    (async () => {
+
+      const html = htm.bind(h);
+      const Prismd = PrismdBuilder({ h, useCallback });
+
+      const response = await fetch("./README.md");
+      const content = await response.text();
+
+      render(html`<${Prismd} content="${content}" />`, document.getElementById("root"));
+    })();
+  </script>
+</body>
+</html>

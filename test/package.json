@@ -1,0 +1,15 @@
+{
+  "name": "prismd-test",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.jsx",
+  "scripts": {
+    "build": "../node_modules/.bin/esbuild --loader:.md=text --bundle --platform=browser --format=esm --minify --outfile=index.js index.jsx"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "preact": "^10.5.7"
+  }
+}
