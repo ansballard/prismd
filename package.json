@@ -2,7 +2,7 @@
   "name": "prismd",
   "version": "0.1.0-alpha1",
   "description": "",
-  "main": "index.js",
+  "main": "dist/prismd.preact.mjs",
   "scripts": {
     "build:builder": "esbuild --bundle --platform=browser --format=esm  --outfile=dist/prismd.builder.mjs src/prismd.builder.mjs",
     "build:react": "esbuild --bundle --platform=browser --format=esm --external:react --minify --outfile=dist/prismd.react.mjs src/prismd.react.mjs",
