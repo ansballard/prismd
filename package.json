@@ -1,16 +1,21 @@
 {
   "name": "prismd",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha1",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "",
     "build:builder": "esbuild --bundle --platform=browser --format=esm  --outfile=dist/prismd.builder.mjs src/prismd.builder.mjs",
     "build:react": "esbuild --bundle --platform=browser --format=esm --external:react --minify --outfile=dist/prismd.react.mjs src/prismd.react.mjs",
     "build:preact": "esbuild --bundle --platform=browser --format=esm --external:preact --minify --outfile=dist/prismd.preact.mjs src/prismd.preact.mjs"
   },
+  "files": [
+    "src",
+    "dist/prismd.builder.mjs",
+    "dist/prismd.react.mjs",
+    "dist/prismd.preact.mjs"
+  ],
   "keywords": [],
-  "author": "",
+  "author": "Aaron Ballard (ans.ballard@gmail.com)",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
