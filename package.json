@@ -4,9 +4,13 @@
   "description": "",
   "main": "dist/prismd.preact.mjs",
   "scripts": {
+    "build": "run-p build:*",
     "build:builder": "esbuild --bundle --platform=browser --format=esm  --outfile=dist/prismd.builder.mjs src/prismd.builder.mjs",
     "build:react": "esbuild --bundle --platform=browser --format=esm --external:react --minify --outfile=dist/prismd.react.mjs src/prismd.react.mjs",
-    "build:preact": "esbuild --bundle --platform=browser --format=esm --external:preact --minify --outfile=dist/prismd.preact.mjs src/prismd.preact.mjs"
+    "build:preact": "esbuild --bundle --platform=browser --format=esm --external:preact --minify --outfile=dist/prismd.preact.mjs src/prismd.preact.mjs",
+    "build:examples": "run-p build:test:*",
+    "build:examples:preact": "esbuild --bundle --platform=browser --jsx-factory=h --loader:.md=text --format=iife --outfile=test/index.preact.js test/index.preact.jsx",
+    "build:examples:react": "esbuild --bundle --define:process.env.NODE_ENV='\"development\"' --platform=browser --loader:.md=text --format=iife --outfile=test/index.react.js test/index.react.jsx"
   },
   "files": [
     "src",
@@ -20,8 +24,14 @@
   "dependencies": {},
   "devDependencies": {
     "esbuild": "^0.8.18",
+    "marked": "^1.2.5",
+    "npm-run-all": "^4.1.5",
+    "preact": "^10.5.7",
     "prismjs": "^1.22.0",
-    "snarkdown": "^2.0.0"
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "snarkdown": "^2.0.0",
+    "uvu": "^0.5.1"
   },
   "peerDependencies": {
     "preact": "^10.5.7"

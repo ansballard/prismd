@@ -1,22 +1,28 @@
 //@ts-check
-import snark from "snarkdown";
 import { highlight, languages } from "prismjs";
 
-export const PrismdBuilder = ({ h, useCallback }) => ({ content }) => {
-  const ref = useCallback(node => {
-    if (node !== null) {
-      node.innerHTML = snark(content);
-      const codeBlocks = node.querySelectorAll("pre > code");
-      let language, firstClass;
-      for(const codeBlock of codeBlocks) {
-        firstClass = codeBlock.classList[0];
-        if(firstClass?.indexOf("language-") === 0) {
-          codeBlock.parentNode.classList.add(firstClass);
-          language = codeBlock.classList[0].slice("language-".length);
-          codeBlock.innerHTML = highlight(codeBlock.innerText, languages[language], language);
+export const PrismdBuilder = ({ h, useCallback, markdown }) => ({ content }) => {
+  const ref = useCallback(
+    (node) => {
+      if (node !== null && content) {
+        node.innerHTML = markdown(content);
+        const codeBlocks = node.querySelectorAll("pre > code");
+        let language, firstClass;
+        for (const codeBlock of codeBlocks) {
+          firstClass = codeBlock.classList[0];
+          if (firstClass?.indexOf("language-") === 0) {
+            codeBlock.parentNode.classList.add(firstClass);
+            language = codeBlock.classList[0].slice("language-".length);
+            codeBlock.innerHTML = highlight(
+              codeBlock.innerText,
+              languages[language],
+              language
+            );
+          }
         }
       }
-    }
-  }, []);
-  return h("div", { className: "markdown-wrapper", ref } );
+    },
+    [content]
+  );
+  return h("div", { className: "markdown-wrapper", ref });
 };
