@@ -1,3 +1,4 @@
+//@ts-check
 import React, { useCallback } from "react";
 import markdown from "snarkdown";
 import { PrismdBuilder } from "./prismd.builder.mjs";

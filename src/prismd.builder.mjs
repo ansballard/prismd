@@ -5,7 +5,7 @@ export const PrismdBuilder = ({ h, useCallback, markdown }) => ({ content }) => 
   const ref = useCallback(
     (node) => {
       if (node !== null && content) {
-        node.innerHTML = markdown(content);
+        node.innerHTML = markdown(content.replace(/\r/g, ""));
         const codeBlocks = node.querySelectorAll("pre > code");
         let language, firstClass;
         for (const codeBlock of codeBlocks) {

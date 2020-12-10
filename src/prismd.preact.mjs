@@ -1,3 +1,4 @@
+//@ts-check
 import { h } from "preact";
 import { useCallback } from "preact/hooks";
 import markdown from "snarkdown";

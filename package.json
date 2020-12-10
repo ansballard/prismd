@@ -2,15 +2,15 @@
   "name": "prismd",
   "version": "0.1.0-alpha1",
   "description": "",
-  "main": "dist/prismd.preact.mjs",
+  "main": "dist/prismd.builder.mjs",
   "scripts": {
     "build": "run-p build:*",
     "build:builder": "esbuild --bundle --platform=browser --format=esm  --outfile=dist/prismd.builder.mjs src/prismd.builder.mjs",
     "build:react": "esbuild --bundle --platform=browser --format=esm --external:react --minify --outfile=dist/prismd.react.mjs src/prismd.react.mjs",
     "build:preact": "esbuild --bundle --platform=browser --format=esm --external:preact --minify --outfile=dist/prismd.preact.mjs src/prismd.preact.mjs",
-    "build:examples": "run-p build:test:*",
-    "build:examples:preact": "esbuild --bundle --platform=browser --jsx-factory=h --loader:.md=text --format=iife --outfile=test/index.preact.js test/index.preact.jsx",
-    "build:examples:react": "esbuild --bundle --define:process.env.NODE_ENV='\"development\"' --platform=browser --loader:.md=text --format=iife --outfile=test/index.react.js test/index.react.jsx"
+    "build:examples": "run-p build:examples:*",
+    "build:examples:preact": "esbuild --bundle --platform=browser --jsx-factory=h --loader:.md=text --format=iife --outfile=examples/index.preact.js examples/index.preact.jsx",
+    "build:examples:react": "esbuild --bundle --define:process.env.NODE_ENV='\"development\"' --platform=browser --loader:.md=text --format=iife --outfile=examples/index.react.js examples/index.react.jsx"
   },
   "files": [
     "src",
@@ -32,8 +32,5 @@
     "react-dom": "^17.0.1",
     "snarkdown": "^2.0.0",
     "uvu": "^0.5.1"
-  },
-  "peerDependencies": {
-    "preact": "^10.5.7"
   }
 }
