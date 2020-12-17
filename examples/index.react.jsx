@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import ReactDOM from "react-dom";
-import { Prismd } from "../dist/prismd.react.mjs";
-import { PrismdBuilder } from "../dist/prismd.builder.mjs";
+import { Prismd } from "prismd/dist/prismd.react.mjs";
+import { PrismdBuilder } from "prismd";
 import marked from "marked";
 
 import staticReadme from "./README.md";

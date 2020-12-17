@@ -18,6 +18,14 @@
     "dist/prismd.react.mjs",
     "dist/prismd.preact.mjs"
   ],
+  "exports": {
+    "preact": {
+      "import": "./dist/prismd.preact.mjs"
+    },
+    "react": {
+      "import": "./dist/prismd.react.mjs"
+    }
+  },
   "keywords": [],
   "author": "Aaron Ballard (ans.ballard@gmail.com)",
   "license": "ISC",
@@ -27,6 +35,7 @@
     "marked": "^1.2.5",
     "npm-run-all": "^4.1.5",
     "preact": "^10.5.7",
+    "prismd": "file:.",
     "prismjs": "^1.22.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

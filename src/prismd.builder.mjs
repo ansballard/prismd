@@ -1,7 +1,7 @@
 //@ts-check
 import { highlight, languages } from "prismjs";
 
-export const PrismdBuilder = ({ h, useCallback, markdown }) => ({ content }) => {
+export const PrismdBuilder = ({ h, useCallback, markdown, sanitize = (_) => _ }) => ({ content }) => {
   const ref = useCallback(
     (node) => {
       if (node !== null && content) {
@@ -22,7 +22,8 @@ export const PrismdBuilder = ({ h, useCallback, markdown }) => ({ content }) => 
         }
       }
     },
-    [content]
+    [content],
   );
   return h("div", { className: "markdown-wrapper", ref });
 };
+

@@ -13,3 +13,4 @@ export function PrismdBuilder({
   useCallback(callback: Function, deps: any[]): Function,
   markdown(md: string): string,
 }): ReturnType<h>;
+

@@ -1,7 +1,7 @@
 import { h, render } from "preact";
 import { useEffect, useState, useCallback } from "preact/hooks";
-import { Prismd } from "../dist/prismd.preact.mjs";
-import { PrismdBuilder } from "../dist/prismd.builder.mjs";
+import { Prismd } from "prismd/dist/prismd.preact.mjs";
+import { PrismdBuilder } from "prismd";
 import marked from "marked";
 
 import staticReadme from "./README.md";
